@@ -5,6 +5,7 @@
 
 Welcome to montecarlo's documentation!
 =========================================================
+montecarlo is a Python package designed to compute thermodynamic averages given an Ising Hamiltonian
 
 .. toctree::
    :maxdepth: 2
