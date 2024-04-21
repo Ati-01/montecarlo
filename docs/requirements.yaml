@@ -8,7 +8,6 @@ dependencies:
     # Package depends
   - numpy
   - matplotlib
-  - math
 
     # Pip-only installs
   - pip:
