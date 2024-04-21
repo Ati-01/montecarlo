@@ -5,7 +5,11 @@ dependencies:
   - python
   - pip
 
+    # Package depends
+  - numpy
+  - matplotlib
+  - math
 
-  # Pip-only installs
+    # Pip-only installs
   - pip:
-
+        - sphinx-rtd-theme
