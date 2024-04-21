@@ -1,4 +1,15 @@
-numpy
-matplotlib
-sphinx
-sphinx_rtd_theme
+name: docs
+channels:
+dependencies:
+    # Base depends
+  - python
+  - pip
+
+    # Package depends
+  - numpy
+  - matplotlib
+  - math
+
+    # Pip-only installs
+  - pip:
+        - sphinx-rtd-theme
