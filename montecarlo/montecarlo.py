@@ -2,6 +2,7 @@
 
 import math
 import numpy as np
+import networkx as nx
 
 class BitString:
     """
@@ -139,40 +140,6 @@ class IsingHamiltonian:
 
         e += np.dot(self.mu, 2 * config.config - 1)
         return e
-
-    def delta_e_for_flip(self, i, config):
-        """Compute the energy change incurred if one were to flip the spin at site i
-
-        Parameters
-        ----------
-        i        : int
-            Index of site to flip
-        config   : :class:`BitString`
-            input configuration
-
-        Returns
-        -------
-        energy  : list[BitString, float]
-            Returns both the flipped config and the energy change
-        """
-        return del_e
-
-
-    def metropolis_sweep(self, conf, T=1.0):
-        """Perform a single sweep through all the sites and return updated configuration
-
-        Parameters
-        ----------
-        conf   : :class:`BitString`
-            input configuration
-        T      : int
-            Temperature
-
-        Returns
-        -------
-        conf  : :class:`BitString`
-            Returns updated config
-        """
 
     def compute_average_values(self, T):
         """Compute Average values exactly
