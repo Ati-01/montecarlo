@@ -2,7 +2,7 @@
 
 import math
 import numpy as np
-"""import networkx as nx"""
+import networkx as nx
 
 class BitString:
     """
@@ -187,6 +187,41 @@ class IsingHamiltonian:
         HC = (EE - E * E) / (T * T)
         MS = (MM - M * M) / T
         return E, M, HC, MS
+
+    def get_lowest_energy_config(self):
+        """Finds lowest energy configuration
+
+        Parameters
+        ----------
+        qubits   : Bitstring
+            input configuration
+        G    : Graph
+            input graph defining the Hamiltonian
+        Returns
+        -------
+        emin  : float
+            Lowest energy
+        my_bs.config  : Bitstring
+            Bitstring configuration with lowest energy
+        """
+        x = [] # Store list of indices
+        y = [] # Store list of energies
+        xmin = None # configuration of minimum energy configuration
+        emin = 0 # minimum of energy
+        my_bs = BitString(self.N)
+
+        my_bs.set_int_config(0)
+        emin = self.energy(my_bs)
+        for i in range(np.power(2, my_bs.N)):
+            my_bs.set_int_config(i)
+            ecurrent = self.energy(my_bs)
+            x.append(i)
+            y.append(ecurrent)
+            if ecurrent < emin:
+                emin = ecurrent
+                xmin = i
+        my_bs.set_int_config(xmin)
+        return emin, my_bs.config
 
 def canvas(with_attribution=True):
     """
