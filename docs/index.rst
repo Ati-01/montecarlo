@@ -13,6 +13,7 @@ montecarlo is a Python package designed to compute thermodynamic averages given 
 
    getting_started
    api
+   about
 
 
 
