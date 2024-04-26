@@ -2,7 +2,6 @@
 
 import math
 import numpy as np
-import networkx as nx
 
 class BitString:
     """Simple class to implement a config of bits"""
