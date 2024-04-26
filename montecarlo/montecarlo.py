@@ -5,9 +5,7 @@ import numpy as np
 import networkx as nx
 
 class BitString:
-    """
-    Simple class to implement a config of bits
-    """
+    """Simple class to implement a config of bits"""
     def __init__(self, N):
         self.N = N
         self.config = np.zeros(N, dtype=int) 
