@@ -6,10 +6,17 @@ import numpy as np
 class BitString:
     """Simple class to implement a config of bits"""
     def __init__(self, N):
+        """Constructor
+
+        Parameters
+        ----------
+        N: integer, length of bitstring
+        """
         self.N = N
         self.config = np.zeros(N, dtype=int) 
 
     def __str__(self):
+        """When bitstring is converted to a string, it lists the bits."""
         string = '[ '
         for x in self.config:
             string = string + str(x) + ' '
@@ -17,15 +24,24 @@ class BitString:
         return string
 
     def __eq__(self, other):
+        """When two bitstrings are being compared, it checks to see if the elements are the same"""
         for x in range(self.N):
             if self.config[x] != other.config[x]:
                   return False
         return True
     
     def __len__(self):
+        """When len() is called on a bitstring, it returns the number of bits in the bitstring"""
         return self.N
 
     def on(self):
+        """Find the number of 1 bits
+
+        Returns
+        -------
+        ones  : int
+            Number of ones in bitstring
+        """
         ones = 0
         for x in self.config:
             if x == 1:
@@ -33,6 +49,13 @@ class BitString:
         return ones
     
     def off(self):
+        """Find the number of 0 bits
+
+        Returns
+        -------
+        zeroes  : int
+            Number of zeroes in bitstring
+        """
         zeroes = 0
         for x in self.config:
             if x == 0:
@@ -40,6 +63,13 @@ class BitString:
         return zeroes
     
     def flip_site(self,i):
+        """Flips the bit at the specified element
+
+        Parameters
+        ----------
+        i   : int
+            ith element in bitstring
+        """
         if self.config[i] == 1:
             self.config[i] = 0
         else:
@@ -47,6 +77,13 @@ class BitString:
 
     
     def int(self):
+        """Gives base 10 number representation of bitstring
+
+        Returns
+        -------
+        dec  : int
+            Decimal value of bitstring
+        """
         dec = 0
         for x in range(self.N):
             if self.config[x] == 1:
@@ -55,10 +92,24 @@ class BitString:
  
 
     def set_config(self, s:list[int]):
+        """Sets bitstring to a given bitstring
+
+        Parameters
+        ----------
+        s   : List of integers
+            List of bitstrings
+        """
         for x in range(self.N):
             self.config[x] = s[x]
         
     def set_int_config(self, dec:int):
+        """Sets bitstring to a given decimal number
+
+        Parameters
+        ----------
+        dec   : int
+            Decimal value to change bitstring to
+        """
         other_bs = BitString(self.N)
         for x in range(other_bs.N):
             if dec == 0:

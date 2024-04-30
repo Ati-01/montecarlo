@@ -9,7 +9,6 @@ dependencies:
 
  # Package dependencies
  - numpy
- - matplotlib
 
  # Testing
  - pytest
