@@ -239,12 +239,6 @@ class IsingHamiltonian:
     def get_lowest_energy_config(self):
         """Finds lowest energy configuration
 
-        Parameters
-        ----------
-        qubits   : Bitstring
-            input configuration
-        G    : Graph
-            input graph defining the Hamiltonian
         Returns
         -------
         emin  : float
